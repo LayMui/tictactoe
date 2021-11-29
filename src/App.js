@@ -3,7 +3,11 @@ import './App.css'
 
 function Square(props) {
   return (
-    <button className='square' onClick={props.onClick}>
+    <button
+      className='square'
+      data-testid={props.index}
+      onClick={props.onClick}
+    >
       {props.value}
     </button>
   )
@@ -14,6 +18,7 @@ class Board extends React.Component {
     return (
       <Square
         value={this.props.squares[i]}
+        index={i}
         onClick={() => this.props.onClick(i)}
       />
     )
